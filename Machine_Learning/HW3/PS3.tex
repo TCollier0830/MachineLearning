@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\begin{document}
+\title{Machine Learning Problem Set 3}
+\author{Travis S. Collier, Graduate Student}
+\date{14 October 2019}
+\maketitle
+
+\section{Problem 1}
+Definition of Cross Entropy
+\begin{equation}
+S(p,q) = -\int_{\mathbb{R}}p(x)\ln q(x)dx
+\end{equation}
+\subsection{a}
+Show $S(p_1+p_2,q) = S(p_1,q)+S(p_2,q)$\\
+$S(p_1+p_2,q) = -\int_{\mathbb{R}}(p_1(x) + p_2(x))\ln q(x)dx$ (Applying definition)\\
+$S(p_1+p_2,q) = -\int_{\mathbb{R}}p_1(x)\ln q(x)dx + -\int_{\mathbb{R}}p_1(x)\ln q(x)dx$ (linearity of integrals)\\
+$S(p_1+p_2,q) =  S(p_1,q)+S(p_2,q)$ (Applying definition)\\
+\subsection{b}
+Show $S(\alpha p,q) = \alpha S(p,q)$\\
+$S(\alpha p,q) = -\int_{\mathbb{R}}\alpha p(x)\ln q(x)dx$ (Definition)\\
+$S(\alpha p,q) = -\alpha\int_{\mathbb{R}}p(x)\ln q(x)dx$ (Linearity)\\
+$S(\alpha p,q) = \alpha S(p,q)$ (Definition)\\
+Show: $S(\alpha p,q) = S(p,q^{\alpha})$\\
+$S(\alpha p,q) = -\alpha\int_{\mathbb{R}}p(x)\ln q(x)dx$\\
+$S(\alpha p,q) = -\int_{\mathbb{R}}p(x)\ln q^{\alpha}(x)dx$ (Property of ln)\\
+$S(\alpha p,q) = S(p,q^{\alpha})$\\
+\subsection{b}
+Show $S(p,q_1q_2) = S(p,q_1)+S(p,q_2)$\\
+$S(p,q_1q_2) = -\int_{\mathbb{R}}(p(x))\ln(q_1(x)q_2(x))dx$ (Applying definition)\\
+$S(p,q_1q_2) = -\int_{\mathbb{R}}(p(x))(\ln(q_1(x)) + \ln(q_2(x)))dx$ (Property of ln)\\
+$S(p,q_1q_2) = -\int_{\mathbb{R}}(p(x))\ln(q_1(x))dx +  -\int_{\mathbb{R}}(p(x))\ln(q_2(x))dx$ (Linearity)\\
+$S(p,q_1q_2) = S(p,q_1)+S(p,q_2)$ (defintion)\\
+
+\section{Problem 2}
+\subsection{a}
+Python code:\\
+from numpy import linspace\\
+def f(x):\\
+$\>$ return x*x + 1\\
+def g(x):\\
+$\>$ return x - 0.5\\
+\\
+Diff = []\\
+N = [100,1000]\\
+for i in range(len(N)):\\
+$\>$ Diff.append((i,max([abs(f(x)-g(x)) for x in linspace(0,1,num=N[i])])))\\
+print(Diff)\\
+Diff = [(0,1.5),(1,1.5)]
+\subsection{b}
+Using Calculus we calculate:\\
+$f(x) = x^2+1$ and $g(x) = x - 0.5$\\
+$h(x) = f(x)-g(x) = x^2+1.5-x$\\
+$h^{'}(x) = 2x-1$\\
+Solve for 0 to obtain the function maximum:\\
+$2x-1 = 0 \Rightarrow x = .5$\\
+$h(.5) = 1.25$\\
+$h(0) = 1.5$\\
+$h(1) = 1.5$\\
+$\therefore$ using the classic rules we have found the same maxima
+
+\section{Problem 3}
+The Kullback-Leibler Divergence:
+\begin{equation}
+D_{KL}(p||q) =  -\int_{\mathbb{R}}p(x)\ln \frac{q(x)}{p(x)}dx
+\end{equation}
+\subsection{a}
+Given two densities $p_1(x) = \xi^1e^{-\xi^1x}$ and $p_2(x) =\xi^2e^{-\xi^2x}$ for $x \geq 0$ show $D_{KL}(p_1||p_2) = \frac{\xi^2}{\xi^1} - \ln\frac{\xi^2}{\xi^1} - 1$\\
+$D_{KL}(p_1||p_2) =  -\int_{\mathbb{R}}p_1(x)\ln \frac{p_2(x)}{p_1(x)}dx$\\
+$D_{KL}(p_1||p_2) =  -\int_{\mathbb{R}}\xi^1e^{-\xi^1x}\ln \frac{\xi^2e^{-\xi^2x}}{\xi^1e^{-\xi^1x}}dx$\\
+$D_{KL}(p_1||p_2) =  -\int_{\mathbb{R}}\xi^1e^{-\xi^1x}\ln \frac{\xi^2}{\xi^1}\frac{e^{-\xi^2x}}{e^{-\xi^1x}}dx$\\
+$D_{KL}(p_1||p_2) =  -\int_{\mathbb{R}}\xi^1e^{-\xi^1x}(\ln \frac{\xi^2}{\xi^1} + \ln\frac{e^{-\xi^2x}}{e^{-\xi^1x}})dx$\\
+$D_{KL}(p_1||p_2) =  -\int_{\mathbb{R}}\xi^1e^{-\xi^1x}\ln \frac{\xi^2}{\xi^1}dx + -\int_{\mathbb{R}}\xi^1e^{-\xi^1x}\ln\frac{e^{-\xi^2x}}{e^{-\xi^1x}}dx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + \int_{\mathbb{R}}\xi^1e^{-\xi^1x}\ln\frac{e^{-\xi^2x}}{e^{-\xi^1x}}dx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + \int_{\mathbb{R}}\xi^1e^{-\xi^1x}(\ln e^{-\xi^2x} - \ln e^{-\xi^1x})dx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + \int_{\mathbb{R}}\xi^1e^{-\xi^1x}(-\xi^2x +\xi^1x)dx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + \int_{\mathbb{R}}\xi^1e^{-\xi^1x}(-\xi^2 +\xi^1)xdx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + (-\xi^2 +\xi^1)\xi^1\int_{\mathbb{R}}xe^{-\xi^1x}dx$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + (-\xi^2 +\xi^1)\xi^1(-\frac{1}{(\xi^1)^2})$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + (-\xi^2 +\xi^1)\frac{1}{\xi^1}$\\
+$D_{KL}(p_1||p_2) =  -\frac{\xi^1}{\xi^1}\ln \frac{\xi^2}{\xi^1} + \frac{\xi^2}{\xi^1} - \frac{\xi^1}{\xi^1}$\\
+$D_{KL}(p_1||p_2) =  -\ln \frac{\xi^2}{\xi^1} + \frac{\xi^2}{\xi^1} - 1$\\
+\subsection{b}
+$D_{KL}(p_1||p_2) - D_{KL}(p_2||p_1) = -\ln \frac{\xi^2}{\xi^1} + \frac{\xi^2}{\xi^1} - 1 +\ln \frac{\xi^1}{\xi^2} - \frac{\xi^1}{\xi^2} + 1$\\
+$D_{KL}(p_1||p_2) - D_{KL}(p_2||p_1) = -\ln \frac{\xi^2}{\xi^1} + \frac{\xi^2}{\xi^1} +\ln \frac{\xi^1}{\xi^2} - \frac{\xi^1}{\xi^2}$\\
+$D_{KL}(p_1||p_2) - D_{KL}(p_2||p_1) = \ln \frac{(\xi^1)^2}{(\xi^2)^2} + \frac{(\xi^2)^2 - (\xi^1)^2}{\xi^1\xi^2}$\\
+This is in general nonzero.\\
+
+\section{Problem 4}
+The perceptron model of "OR" is: $\sum_iw_ix_i - .5 > 0$ where $w_i = 1, b = -0.5$\\
+The geometric meaning of this function is the line that intersects the boolean square at (0, .5) with constant negative slope, all the values to the right of the line are 1 and all those to the left are 0.\\
+
+\section{Problem 5}
+\subsection{a}
+One perceptron cannot learn the "XOR" function because it is not linearly separable.
+\subsection{b}
+The neural network described by the equation $Y = H(x_1-x_2-\frac{1}{2}) + H(x_2-x_1-\frac{1}{2})$ can learn the "XOR" function:\\
+$0 = H(0-0-\frac{1}{2}) + H(0-0-\frac{1}{2})$\\
+$1 = H(0-1-\frac{1}{2}) + H(1-0-\frac{1}{2})$\\
+$1 = H(1-0-\frac{1}{2}) + H(0-1-\frac{1}{2})$\\
+$0 = H(1-1-\frac{1}{2}) + H(1-1-\frac{1}{2})$\\
+\subsection{c}
+A three perceptron model can learn "XOR" with the following architecture:\\
+Output = $((x_1+x_2+0.5) + (-x_1 - x_2 - 1.5) + 1.5))$ where the values in the inner parentheses correspond to the two nodes in the hidden layer and the outer parentheses correspond to the output neuron.\\
+This architecture is equivalent to an [["OR","NOT AND"],"AND"] gate.
+
+
+
+
+\end{document}

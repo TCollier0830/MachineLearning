@@ -1,0 +1,16 @@
+MACHINE LEARNING PS1
+TRAVIS COLLIER
+25 SEP 2019
+
+QUESTION 1: ATTACHED
+
+QUESTION 2: The wave equation is: y = 3.0205734sin(6.998255x) + -2.0293167sin(-3.9938612x)
+
+QUESTION 3: ATTACHED
+
+QUESTION 4 : Value of regression at x=0.6pi: 3.690009404543662
+
+QUESTION 5 : One obviously sees that we could have gotten away with 600 iterations
+
+REMARK: Another interesting observation is that we could have gotten away with a much larger training step since the loss function is highly convergent.
+

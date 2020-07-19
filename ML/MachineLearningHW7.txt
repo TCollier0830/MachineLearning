@@ -1,0 +1,55 @@
+Machine Learning HW 7.
+Travis Collier, Graduate Student.
+
+Neurons in Dense Layer:20
+Model training Loss:	0.2693015519181887
+Model testing Loss:	0.28295440012216566
+Model training accuracy:	0.90348333
+
+Model testing  accuracy:	0.9021
+
+Neurons in Dense Layer:100
+Model training Loss:	0.23832428976645073
+Model testing Loss:	0.2519866807579994
+Model training accuracy:	0.91178334
+
+Model testing  accuracy:	0.9089
+
+Neurons in Dense Layer:300
+Model training Loss:	0.22243072848767043
+Model testing Loss:	0.2442868570327759
+Model training accuracy:	0.91725
+
+Model testing  accuracy:	0.9105
+
+Neurons in Dense Layer:500
+Model training Loss:	0.21351616080105304
+Model testing Loss:	0.24484166832566262
+Model training accuracy:	0.92
+
+Model testing  accuracy:	0.9082
+
+Neurons in Dense Layer:800
+Model training Loss:	0.20999595257764062
+Model testing Loss:	0.23568482497930526
+Model training accuracy:	0.9217167
+
+Model testing  accuracy:	0.912
+
+Neurons in Dense Layer:1000
+Model training Loss:	0.2093539078546067
+Model testing Loss:	0.2469147224009037
+Model training accuracy:	0.92185
+
+Model testing  accuracy:	0.9078
+
+Neurons in Dense Layer:1500
+Model training Loss:	0.20395393120869995
+Model testing Loss:	0.2525783202290535
+Model training accuracy:	0.9232
+
+Model testing  accuracy:	0.911
+
+Question 3:
+The best architecture had 800 neurons in the dense layer
+The best architecture had accuracy 0.912 

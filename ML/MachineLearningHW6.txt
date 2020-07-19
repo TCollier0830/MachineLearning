@@ -1,0 +1,38 @@
+Machine Learning HW 6.
+Travis Collier, Graduate Student.
+
+Problem 1: See attached image.
+
+Start question 2:
+Neurons in Dense Layer:0
+Model training Loss:	0.22149109551062188
+Model testing Loss:	0.3166026378452778
+The training and testing loss curves have significant space between them indicating that this model is overfitting the data.
+Model training accuracy:	0.91676664
+Model testing  accuracy:	0.8908
+End question 2:
+
+Start question 3:
+Neurons in Dense Layer:0
+Model training Loss:	0.5971767906149228
+Model testing Loss:	0.6212396189689636
+Model training accuracy:	0.82555
+Model testing  accuracy:	0.8143
+End question 3:
+
+Start question 4:
+Neurons in Dense Layer:0
+Model training Loss:	0.24285260997464259
+Model testing Loss:	0.3576432086884975
+Model training accuracy:	0.90868336
+Model testing  accuracy:	0.8827
+End question 4:
+
+Start question 5:
+Neurons in Dense Layer:0
+Model training Loss:	0.43141689770917097
+Model testing Loss:	0.4514567443370819
+Model training accuracy:	0.85295
+Model testing  accuracy:	0.8501
+End question 5:
+

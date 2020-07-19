@@ -1,0 +1,40 @@
+Travis Collier, Graduate Student
+
+Problem 1 a:
+	Minimum:	(1.8927189271892715,-21.006677900479005)
+Problem 1 b:
+	Start:	-5.0
+	delta:	0.001
+	precision:	1e-06
+	maxIters:	1000
+	Minimum:	nan
+Problem 1 c:
+	Start:	5.0
+	delta:	0.001
+	precision:	1e-06
+	maxIters:	1000
+	Minimum:	nan
+Problem 1 d:
+	Start:	5.0
+	delta:	0.001
+	velocity:	0.9
+	momentum:	0.9
+	precision:	1e-06
+	maxIters:	1000
+	Minimum:	nan
+Problem 1 e:
+	Temperature:	10
+	Schedule:	.9
+	Min:	(1.8944392742387492,-21.006460650809093)
+
+PROBLEM 2:
+Optimizer                                                    Loss
+-----------------------------------------------------        --------
+GradientDescentOptimizer(0.0001)                             5.81252
+MomentumOptimizer(0.0001, 0.8)                               5.80197
+AdamOptimizer(0.007)                                         0.241504
+AdagradOptimizer(0.4)                                        0.241504
+AdadeltaOptimizer(0.9)                                       0.241593
+RMSPropOptimizer(0.002)                                      0.24151
+RMSPropOptimizer(0.002, 0.99)                                0.24151
+RMSPropOptimizer(0.002, 0.99, momentum=0.9)                  0.241504
